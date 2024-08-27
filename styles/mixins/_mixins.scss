@@ -1,0 +1,36 @@
+@mixin card($padding, $margin, $background) {
+    padding: $padding;
+    margin: $margin;
+    background-color: $background;
+}
+
+@mixin dezute($width, $height, $background-color, $color) {
+    background-color: $background-color;
+    color: $color;
+    width: $width;
+    height: $height;
+}
+
+@mixin padding-global {
+    padding: 20px;
+}
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == mobile {
+        @media (max-width: 500px) {
+            @content;
+        }
+    } @else if $breakpoint == mini-tablet {
+        @media (max-width: 787px) {
+            @content;
+        }
+    } @else if $breakpoint == tablet {
+        @media (max-width: 1024px) {
+            @content;
+        }
+    } @else {
+        @media (min-width: 1025px) {
+            @content;
+        }
+    }
+}

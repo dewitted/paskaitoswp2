@@ -1,0 +1,139 @@
+@import 'styles/partials/kintamieji';
+@import 'styles/mixins/mixins';
+
+@function calculate-rem($px) {
+    @return $px / 16 * 1rem;
+}
+
+$themes: light, dark;
+
+@each $theme in $themes {
+  .#{$theme}-theme {
+    @if $theme == light {
+      @include light(calculate-rem(10px))
+    } @else {
+      @include dark($px)
+    }
+  }
+}
+
+// .card {
+//     color: black;
+
+//     @media (max-width: 500px) {
+//         color: red;
+//     }
+
+//     @include responsive(mobile) {
+//         color: red;
+//     }
+// }
+
+// @function calculate-rem($px) {
+//     @if $px == 16 {
+//         @return $px / 16 * 1rem;
+//     } @else {
+//         @return $px / 10 * 1rem;
+//     }
+// }
+
+// @function decide-background($width) {
+//     @if ($width > 500) {
+//         @return grey;
+//     } @else {
+//         @return grey;
+//     }
+// }
+
+// .card {
+//     font-size: calculate-rem($main-font-size);
+//     background-color: decide-background(600);
+
+//     & .card-du {
+//         font-size: calculate-rem($big-font-size);
+//         background-color: decide-background(400);
+//     }
+// }
+
+// @each $theme in $themes {
+//   .#{$theme}-theme {
+//     @if $theme == light {
+//         @include dezute(100px, 100px, red, black);
+//         @include padding-global;
+//       } @else {
+//         @include dezute(100px, 100px, black, red);
+//         @include padding-global;
+//     }
+//   }
+// }
+
+// .card {
+//     @include card($standard-padding, $standard-margin, $background-color-main);
+
+//     &.kitokia-card {
+//         @include card(20px, $standard-margin, $background-color-main);
+//     }
+// }
+
+
+
+// $pirmine-kailio-spalva: grey;
+// $orandzine: orange;
+// $raudona: red;
+// $pilka: grey;
+
+// @mixin background-color($padding-margin, $main-color, $secondary-color) {
+//     background-color: $main-color;
+//     padding: $padding-margin;
+//     margin: $padding-margin;
+//     border: 1px solid $secondary-color;
+// }
+
+// //scss nestinimas su & zenklu
+// .container {
+//     .katinas {
+//         @include background-color(20px, $pilka, black);
+
+//         &.senas {
+//             font-size: 20px;
+//         }
+
+//         &.luosas {
+//             font-size: 40px;
+//         }
+//     }
+// }
+// //css
+// .container .katinas.senas {
+//     color: red;
+// }
+
+//css nestinimas
+// .container .katinas {
+//     @include background-color(20px, $pilka, black);
+// }
+
+//scss nestinimas
+// .pirmoji-sekcija {
+//     .katinas {
+//         @include background-color(20px, $raudona, black);
+//     }
+// }
+
+// .antroji-sekcija {
+//     .katinas {
+//         @include background-color(20px, $pirmine-kailio-spalva, black);
+//     }
+// }
+
+
+// .katinas {
+//     @include background-color(20px, $orandzine, black);
+//     // color: $pirmine-kailio-spalva;
+// }
+
+// .suo {
+//     @include background-color(20px, $raudona, black);
+//     // color: $pirmine-kailio-spalva;
+// }
+
